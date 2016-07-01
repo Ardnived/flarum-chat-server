@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "daemonize2": "^0.4.2",
+    "redis": "^2.6.2",
+    "socket.io": "^1.4.6",
+    "uuid4": "^1.0.0"
+  },
+  "scripts": {
+    "start": "./redis-3.2.1/src/redis-server --daemonize yes; node launch.js start",
+    "stop": "node launch.js stop",
+    "startdb": "./redis-3.2.1/src/redis-server --daemonize yes",
+    "stopdb": "./redis-3.2.1/src/redis-cli shutdown",
+    "flushdb": "./redis-3.2.1/src/redis-cli flushall"
+  }
+}

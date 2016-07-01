@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
+		<!--script src="http://cdn.jsdelivr.net/sockjs/1/sockjs.min.js"></script-->
+		<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+		<script src="./client.js"></script>
+	</head>
+	<body>
+		<header>
+			<span>Server: </span>
+			<input id="server" type="text" value="localhost:9000"></input>
+			<input id="username" type="text" value="admin"></input>
+			<input id="password" type="text" value="administrator"></input>
+			<button id="connect">Connect</button>
+		</header>
+
+		<header>
+			<span>Room: </span>
+			<input id="users" type="text" value="user,user2"></input>
+			<button id="join">Create Room</button>
+		</header>
+
+		<header>
+			<span>View: </span>
+			<select id="rooms">
+				<option value="">None</option>
+			</select>
+		</header>
+
+		<content>
+			<ul id="history" class="history"></ul>
+		</content>
+
+		<hr>
+		<input id="message" type="text"></input>
+		<br>
+		<button id="send">Send</button>
+	</body>
+	<style>
+		.history {
+			border: 1px solid darkgreen;
+			display: none;
+		}
+	</style>
+	<script>
+		jQuery('#rooms').change(function() {
+			jQuery('.history').hide();
+			jQuery('#history-'+jQuery('#rooms').val()).show();
+		});
+	</script>
+</html>
